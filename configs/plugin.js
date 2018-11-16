@@ -1,23 +1,28 @@
 const path = require('path')
 const fs = require('fs-extra');
+const { getGlobalCode } = require('./global')
 const config = require('./config')
 const helper = require('./helper')
 const glob = require('glob');
 const isWin = /^win/.test(process.platform);
 
 const templateDir = helper.rootNode(config.templateDir)
-let globalFilePath = helper.root(config.globalFilePath);
 
 const getEntryFileContent = (entryPath, vueFilePath) => {
-  let globalContents = fs.readFileSync(globalFilePath).toString();
+  // *.vue 相对地址
   let relativeVuePath = path.relative(path.join(entryPath, '../'), vueFilePath);
-  let contents = '';
   if (isWin) {
     relativeVuePath = relativeVuePath.replace(/\\/g, '\\\\');
   }
-  contents += `import App from '${relativeVuePath}'\n\n`
-  contents += globalContents + '\n'
-  contents += 'new Vue(Vue.util.extend({el: \'#root\'}, App));'
+  // 拼接index.js 内容
+  let contents = `import App from '${relativeVuePath}'\n\n`
+  // 插入global代码
+  const globalContents = getGlobalCode(vueFilePath)
+  if (globalContents) {
+    contents += globalContents + '\n'
+  }
+  // 导出new Vue
+  contents += 'export default new Vue(Vue.util.extend({el: \'#root\'}, App));'
   return contents;
 }
 

@@ -10,6 +10,6 @@ if (WXEnvironment.platform === 'Web') {
   // 设置viewport
   const meta = weex.requireModule('meta')
   meta.setViewport({
-    width: 3840
+    width: 750
   })
 }
