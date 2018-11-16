@@ -9,7 +9,7 @@
 
 ## 支持
 
-* 增加temp功能（移植weex-toolkit），不用再配置entry入口
+* 增加temp功能（移植weex-toolkit），不用再配置entry入口
 * 整理src目录，src/views是页面默认路径
 * global.js：页面全局配置，比如web下读取url传参、native设置viewport
 * 支持第三方weex组件，默认集成了weex-ui、weex-amui，并支持按需加载
