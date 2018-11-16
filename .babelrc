@@ -16,6 +16,11 @@
         "libraryName": "weex-ui",
         "libDir": "packages",
         "style": false
+      },
+      {
+        "libraryName": "weex-flymeui",
+        "libDir": "packages",
+        "style": false
       }
     ]
   ],

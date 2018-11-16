@@ -9640,6 +9640,22 @@ weex-bindingx@0.0.17:
     simple-lodash "^0.0.2"
     universal-env "0.x.x"
 
+weex-bindingx@^0.0.24:
+  version "0.0.24"
+  resolved "http://registry.npmjs.org/weex-bindingx/-/weex-bindingx-0.0.24.tgz#ae171ceec8d7912decbae076ed220e9079be9449"
+  dependencies:
+    bindingx-parser "0.x.x"
+    bindingx-web-polyfill "0.x.x"
+    object-assign "^4.1.1"
+    simple-lodash "^0.0.2"
+    universal-env "0.x.x"
+
+weex-flymeui@^0.1.25:
+  version "0.1.25"
+  resolved "https://registry.npmjs.org/weex-flymeui/-/weex-flymeui-0.1.25.tgz#763a9ae150ca6ded458944574f026c9604ea6e17"
+  dependencies:
+    weex-bindingx "^0.0.24"
+
 weex-loader@^0.5.3:
   version "0.5.3"
   resolved "https://registry.npmjs.org/weex-loader/-/weex-loader-0.5.3.tgz#1172a36850d060319653549704e76b3ba4176ef9"
