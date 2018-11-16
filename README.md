@@ -22,7 +22,7 @@
     template: 'web/layout.html',
     lib: [helper.rootNode('web/web.js')],
     pageDir: 'src/views', // 页面路径：仅编译这个目录下的vue文件
-    templateDir: '.temp', // 将vue文件包装临时js文件的路径
+    templateDir: '.temp', // 将vue文件包装临时js文件的路径
     globalFilePath: 'global.js' // 页面全局配置
   }
   ```
