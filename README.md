@@ -32,40 +32,56 @@
     lib: [helper.rootNode('web/web.js')],
     pageDir: 'src/views', // 页面路径：仅编译这个目录下的vue文件
     templateDir: '.temp', // 将vue文件包装临时js文件的路径
-    globalFile: 'global' // 页面全局配置, 可读取 ${globalFile}.js、${globalFile}.${dir}.js
+    globalName: 'global' // 页面全局配置, 可读取 ${globalName}.js、${globalName}.${dir}.js
   }
   ```
 
 ## 页面全局配置
 
+***规则***
+  
+1. 文件夹匹配： 
+  
+    ```js
+    ${pageDir}/${dir}/**/*.vue
+    ```
+    比如：src/views/hhdpi/**/*.vue, 会匹配 ${globalName}.hhdpi.{ js | html }
+2. 文件后缀匹配
+
+    ```js
+    ${fileName}.${dir}.vue
+    ```
+    比如：list.hhdpi.vue, 会匹配 ${globalName}.hhdpi.{ js|html }
+
+### weex 
+
 * 默认配置
 
   ```js
-  ${globalFile}.js
+  ${globalName}.js
   ```
 
 * 个性配置
 
   ```js
-  ${globalFile}.${dir}.js
+  ${globalName}.${dir}.js
   ```
 
   由于第三方UI库支持的viewport不同，比如weex-ui和weex-amui都是750，weex-flymeui是1080，因此全局配置有可能不同，那么个性配置就派上用场了。
 
-  ***规则***
-  
-  1. 文件夹匹配： 
-    
-      ```js
-      ${pageDir}/${dir}/**/*.vue
-      ```
-      比如：src/views/hhdpi/**/*.vue, 会匹配 ${globalFile}.hhdpi.js
-  2. 文件后缀匹配
+### web
 
-      ```js
-      ${fileName}.${dir}.vue
-      ```
-      比如：list.hhdpi.vue, 会匹配 ${globalFile}.hhdpi.js
+* 默认配置
+
+  ```js
+  ${templateName}.js
+  ```
+
+* 个性配置
+
+  ```js
+  ${templateName}.${dir}.js
+  ```
 
 ## viewport 配置
 * native
