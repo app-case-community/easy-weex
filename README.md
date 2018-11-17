@@ -50,7 +50,7 @@
   ${globalFile}.${dir}.js
   ```
 
-  由于第三方UI库支持的viewport不同，比如weex-ui和weex-amui都是750，weex-flymeui是1080，因此全局配置有可能不同，那么个性配置就派上用场了。
+  由于第三方UI库支持的viewport不同，比如weex-ui和weex-amui都是750，weex-flymeui是1080，因此全局配置有可能不同，那么个性配置就派上用场了。
 
   ***规则***
   
