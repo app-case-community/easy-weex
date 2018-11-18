@@ -15,10 +15,6 @@ const getSingleEntryFileContent = (entryFile, relativeVuePath, vueParser) => {
   var rootPath = relativeVuePath.replace(vueParser.base, '');
   var reg = new RegExp('\'./', 'g');
   content = content.replace(reg, '\'' + rootPath); // 替换 './ -> 和vue文件同级目录
-
-  rootPath = rootPath.replace('../', '');
-  reg = new RegExp('\'../', 'g');
-  content = content.replace(reg, '\'' + rootPath); // 替换 '../ -> 和vue文件同级目录
   return content;
 };
 
