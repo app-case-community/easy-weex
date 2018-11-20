@@ -9828,8 +9828,9 @@ weex-bindingx@^0.0.24:
     simple-lodash "^0.0.2"
     universal-env "0.x.x"
 
-"weex-flymeui@file:../weex-flymeui":
+"weex-flymeui@https://github.com/snice/weex-flymeui.git":
   version "0.1.24"
+  resolved "https://github.com/snice/weex-flymeui.git#d1994067e2a31700c5d53069ce4f3fc10b2b194e"
   dependencies:
     weex-bindingx "^0.0.24"
 
