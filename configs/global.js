@@ -73,28 +73,27 @@ const getTemplateCode = (vueFilePath) => {
 
 const urlRelativeOption = type => {
   return {
-    useRelativePath: true,
-    outputPath (file) {
-      let webPos = file.indexOf(`/web/${type}/`)
-      let weexPos = file.indexOf(`/weex/${type}/`)
-      if (webPos > 0) {
-        return file.substr(webPos + 1)
+    publicPath(file, entryfile) {
+      const isWeb = file.indexOf(`web/${type}/`) > -1
+      const isWeex = file.indexOf(`weex/${type}/`) > -1
+      const pos = entryfile.indexOf(config.templateDir + '/') + config.templateDir.length
+      let entryPath = entryfile.substr(pos)
+      // 删除文件名
+      const lastPos = entryPath.lastIndexOf('\/')
+      entryPath = entryPath.substr(0, lastPos)
+
+      let entryTargetPath = ''
+      let urlFileEmitPath = ''
+      
+      if (isWeb) {
+        entryTargetPath = helper.rootNode('dist/web/js' + entryPath)
+        urlFileEmitPath = helper.rootNode('dist/' + file)
       }
-      if (weexPos > 0) {
-        return file.substr(weexPos + 1)
+      if (isWeex) {
+        entryTargetPath = helper.rootNode('dist/weex/js'+ entryPath)
+        urlFileEmitPath = helper.rootNode('dist/' + file)
       }
-      return file
-    },
-    publicPath (file) {
-      const weexReg = /..\/views\/.+weex\//i
-      const webReg = /..\/views\/.+web\//i
-      if (webReg.test(file)) {
-        return file.replace(webReg, '')
-      }
-      if (weexReg.test(file)) {
-        return file.replace(weexReg, '')
-      }
-      return file
+      return path.relative(entryTargetPath, urlFileEmitPath)
     }
   }
 }
