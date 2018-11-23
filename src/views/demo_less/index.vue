@@ -7,23 +7,23 @@
         text="确定"
         type="primary"/>
         <toolbar>
-          
+
         </toolbar>
     </div>
   </scroller>
 </template>
 <script>
-import { AmButton } from 'weex-amui';
-export default {
-  components: {
-    AmButton
-  },
-  methods: {
-    test () {
-      console.log('click..')
+  import { AmButton } from 'weex-amui'
+  export default {
+    components: {
+      AmButton
+    },
+    methods: {
+      test () {
+        console.log('click..')
+      }
     }
   }
-}
 </script>
 
 <style lang="less" scoped>
