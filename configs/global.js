@@ -71,7 +71,36 @@ const getTemplateCode = (vueFilePath) => {
   return templateCode
 }
 
+const urlRelativeOption = type => {
+  return {
+    useRelativePath: true,
+    outputPath (file) {
+      let webPos = file.indexOf(`/web/${type}/`)
+      let weexPos = file.indexOf(`/weex/${type}/`)
+      if (webPos > 0) {
+        return file.substr(webPos + 1)
+      }
+      if (weexPos > 0) {
+        return file.substr(weexPos + 1)
+      }
+      return file
+    },
+    publicPath (file) {
+      const weexReg = /..\/views\/.+weex\//i
+      const webReg = /..\/views\/.+web\//i
+      if (webReg.test(file)) {
+        return file.replace(webReg, '')
+      }
+      if (weexReg.test(file)) {
+        return file.replace(weexReg, '')
+      }
+      return file
+    }
+  }
+}
+
 module.exports = {
   getGlobalCode,
-  getTemplateCode
+  getTemplateCode,
+  urlRelativeOption
 }
