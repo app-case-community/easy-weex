@@ -22,6 +22,7 @@
 * 整理src目录，src/views是页面默认路径
 * 页面全局配置，比如web下读取url传参、native设置viewport
 * 增加单个Vue入口文件支持
+* 支持资源相对路径，默认生产开启
 * 支持第三方weex组件，默认集成了[weex-ui](https://github.com/alibaba/weex-ui)、[weex-amui](https://github.com/hminghe/weex-amui)、[weex-flymeui](https://github.com/FlymeApps/weex-flymeui)，并支持按需加载
 
 ## 配置修改
