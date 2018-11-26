@@ -1,7 +1,10 @@
 const path = require('path')
 const fs = require('fs-extra')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const { getGlobalCode, getTemplateCode } = require('./global')
+const {
+  getGlobalCode,
+  getTemplateCode
+} = require('./global')
 const config = require('./config')
 const helper = require('./helper')
 const glob = require('glob')
@@ -76,18 +79,26 @@ const loaders = {
   }
 }
 
-const plugins = [
-  {
-    uglifyJs: false
-  }
-]
+const plugins = [{
+  uglifyJs: false
+}]
 
 if (process.env.NODE_ENV === 'production') {
-  plugins.push(
-    new UglifyJsPlugin({
-      parallel: 4
-    })
-  )
+  plugins.push(new UglifyJsPlugin({
+    parallel: 4,
+    uglifyOptions: {
+      ie8: false,
+      ecma: 5,
+      warnings: false,
+      compress: true,
+      mangle: {
+        safari10: true
+      },
+      output: {
+        comments: false
+      }
+    }
+  }))
   // new UglifyJsPlugin({
   //   // 使用外部引入的新版本的js压缩工具
   //   parallel: 4,
