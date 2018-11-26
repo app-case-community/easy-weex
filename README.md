@@ -1,6 +1,16 @@
 # easy weex
   基于[easywebpack-weex-boilerplate](https://github.com/easy-team/easywebpack-weex-boilerplate)修改，再次减少配置。
 
+## 声明
+
+  由于有些开发人员不喜欢使用[weex-toolkit](https://github.com/weexteam/weex-toolkit)，因此我提交这个模板。那么，肯定就不支持weex-toolkit的命令了，不过weex debug 是可以用的。
+
+  native 项目模板
+  * [android](https://github.com/snice/easy-weex-app-android)
+  * [ios](https://github.com/snice/easy-weex-app-ios)
+
+---
+
 ## 使用
 
     安装：
