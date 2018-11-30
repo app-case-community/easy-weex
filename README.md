@@ -135,3 +135,8 @@
   ***解决办法***
   
   使用alias配置即可
+
+
+## 欢迎讨论
+
+![qq](https://oss.zhuzhe.wang/imgs/easy-weex-qq-qun.png)
