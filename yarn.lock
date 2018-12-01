@@ -6098,6 +6098,10 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lottie-web@^5.4.2:
+  version "5.4.2"
+  resolved "http://192.168.200.235:8282/repository/findnpmgroup/lottie-web/-/lottie-web-5.4.2.tgz#efe727ce20170946969929b50f30bfef3ec7ae55"
+
 loud-rejection@^1.0.0:
   version "1.6.0"
   resolved "https://registry.npmjs.org/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
