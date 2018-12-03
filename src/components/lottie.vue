@@ -1,7 +1,5 @@
 <template>
-  <div
-    ref="lavContainer"
-  ></div>
+  <div ref="lavContainer"></div>
 </template>
 
 <script>
@@ -12,7 +10,7 @@
       options: Object,
       autoplay: {
         type: Boolean,
-        default: true
+        default: false
       },
       loop: {
         type: [Boolean, String],
@@ -20,8 +18,7 @@
       },
       src: String
     },
-
-    async mounted () {
+    mounted () {
       let otherOptions = {
         container: this.$refs.lavContainer.$el,
         renderer: 'svg',
@@ -31,7 +28,22 @@
         path: this.src
       }
       this.anim = lottie.loadAnimation(otherOptions)
-      this.$emit('animCreated', this.anim)
+      this.$emit('loaded')
+    },
+    beforeDestroy () {
+      this.anim = null
+      this.anim = undefined
+    },
+    methods: {
+      play () {
+        this.anim && this.anim.play()
+      },
+      pause () {
+        this.anim && this.anim.pause()
+      },
+      reset () {
+        this.anim && this.anim.reset()
+      }
     }
   }
 </script>
