@@ -3,6 +3,9 @@
     <div class="panel">
       <text class="text">Weex 是一套简单易用的跨平台开发方案，能以 Web 的开发体验构建高性能、可扩展的原生应用。</text>
     </div>
+    <div @click="openUrl">
+      <text >测试navigator.push 原生界面</text>
+    </div>
     <f2-chart :data="chartData" style="width:750px;height:600px;" />
     <!-- <text>本地资源1</text>
     <lottie style='width:200px;height:200px;border-width:2px;' loop=true src="local://lottie/coinpig.json" />
@@ -52,6 +55,11 @@
             this.$refs.lottie3.reset()
           }, 1000)
         }, 3000)
+      },
+      openUrl () {
+        weex.requireModule('navigator').push({
+          url: 'easy://router.flyma.top/second/test?test=23'
+        })
       }
     }
   }
